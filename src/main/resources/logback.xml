@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : logback.xml
+    Created on : December 17, 2009, 6:58 PM
+    Author     : andy
+    Description:
+        Purpose of the document follows.
+-->
+
+<configuration scan="true" scanPeriod="30 seconds">
+    <property resource="cdeps.sl4j.properties" />
+
+    <if condition='property("mode").equals("prod")'>
+        <then>
+            <include file="${logRoot}/attachments/configuration/logback-prod.xml" />
+        </then>
+    </if>
+	
+    <if condition='property("mode").equals("dev")'>
+        <then>
+            <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <Pattern>%d %p [%c] - &lt;%m&gt;%n</Pattern>
+                </layout>
+            </appender>
+
+            <logger name="org.apache" level="INFO"/>
+            <logger name="org.springframework" level="INFO"/>
+            <logger name="org.apache.openjpa" level="INFO"/>
+            <logger name="net.sf.ehcache" level="ERROR"/>
+            <logger name="org.jboss.weld" level="TRACE"/>
+            <logger name="cis" level="TRACE"/>
+
+            <root level="INFO">
+                <appender-ref ref="stdout"/>
+            </root>
+        </then>
+    </if>
+	
+</configuration>
