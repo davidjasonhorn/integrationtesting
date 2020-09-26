@@ -36,11 +36,11 @@ public class ProductTO {
     private String productDescription;
 
     @NotNull
-    private Integer initialQuanity;
+    private Integer initialQuantity;
 
     private Integer totalUsedQuantity;
 
-    private Integer remainginQuantity;
+    private Integer remainingQuantity;
     
     @NotNull
     private BigDecimal unitPrice;
@@ -49,17 +49,17 @@ public class ProductTO {
      * 
      * @param productId
      * @param productDescription
-     * @param initialQuanity
+     * @param initialQuantity
      * @param totalUsedQuantity
-     * @param remainginQuantity
+     * @param remainingQuantity
      * @param unitPrice 
      */
-    public ProductTO(String productId, String productDescription, Integer initialQuanity, Integer totalUsedQuantity, Integer remainginQuantity, BigDecimal unitPrice) {
+    public ProductTO(String productId, String productDescription, Integer initialQuantity, Integer totalUsedQuantity, Integer remainingQuantity, BigDecimal unitPrice) {
         this.productId = productId;
         this.productDescription = productDescription;
-        this.initialQuanity = initialQuanity;
+        this.initialQuantity = initialQuantity;
         this.totalUsedQuantity = totalUsedQuantity;
-        this.remainginQuantity = remainginQuantity;
+        this.remainingQuantity = remainingQuantity;
         this.unitPrice = unitPrice;
     }
 
@@ -69,8 +69,8 @@ public class ProductTO {
         return totalUsedQuantity;
     }
 
-    public Integer getInitialQuanity() {
-        return initialQuanity;
+    public Integer getInitialQuantity() {
+        return initialQuantity;
     }
 
     public String getProductDescription() {
@@ -81,8 +81,8 @@ public class ProductTO {
         return productId;
     }
 
-    public Integer getRemainginQuantity() {
-        return remainginQuantity;
+    public Integer getRemainingQuantity() {
+        return remainingQuantity;
     }
 
     public BigDecimal getUnitPrice() {
@@ -119,7 +119,7 @@ public class ProductTO {
 
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", productDescription=" + productDescription + ", initialQuanity=" + initialQuanity + ", totalUsedQuantity=" + totalUsedQuantity + ", remainginQuantity=" + remainginQuantity + ", unitPrice=" + unitPrice + '}';
+        return "Product{" + "productId=" + productId + ", productDescription=" + productDescription + ", initialQuantity=" + initialQuantity + ", totalUsedQuantity=" + totalUsedQuantity + ", remainingQuantity=" + remainingQuantity + ", unitPrice=" + unitPrice + '}';
     }
 
 }

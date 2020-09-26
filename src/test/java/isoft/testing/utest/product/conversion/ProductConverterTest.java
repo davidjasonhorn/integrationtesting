@@ -69,9 +69,9 @@ public class ProductConverterTest {
         Assertions.assertAll("verify Product domain",
                 () -> Assertions.assertEquals("id", prod.getProductId()),
                 () -> Assertions.assertEquals("description", prod.getProductDescription()),
-                () -> Assertions.assertEquals(new Integer(100), prod.getInitialQuanity()),
+                () -> Assertions.assertEquals(new Integer(100), prod.getInitialQuantity()),
                 () -> Assertions.assertEquals(new Integer(0), prod.getTotalUsedQuantity()),
-                () -> Assertions.assertEquals(new Integer(100), prod.getRemainginQuantity()),
+                () -> Assertions.assertEquals(new Integer(100), prod.getRemainingQuantity()),
                 () -> Assertions.assertEquals(unitPrice, prod.getUnitPrice())
         );
 
@@ -131,8 +131,8 @@ public class ProductConverterTest {
         //Assert
         prod.getProducts().forEach((t) -> {
             assertAll("validate the list elements",
-                    () -> assertEquals(100, t.getInitialQuanity()),
-                    () -> assertEquals(100, t.getRemainginQuantity()),
+                    () -> assertEquals(100, t.getInitialQuantity()),
+                    () -> assertEquals(100, t.getRemainingQuantity()),
                     () -> assertEquals( unitPrice, t.getUnitPrice())
             );
         });

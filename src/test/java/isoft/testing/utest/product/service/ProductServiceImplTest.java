@@ -11,7 +11,7 @@ import isoft.testing.utest.product.domain.InventoryTransaction;
 import isoft.testing.utest.product.domain.Product;
 import isoft.testing.utest.product.domain.ProductRepository;
 import isoft.testing.utest.product.external.ExchangeRateHelper;
-import isoft.testing.utest.product.validation.ObjectValidator;
+import isoft.testing.utest.product.validation.SimpleObjectValidator;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Assertions;
@@ -42,7 +42,7 @@ public class ProductServiceImplTest {
     private ExchangeRateHelper exchangeRateHelper;
 
     @Mock
-    private ObjectValidator objectValidator; 
+    private SimpleObjectValidator objectValidator; 
     
     @InjectMocks
     private ProductServiceImpl productService;
@@ -52,7 +52,7 @@ public class ProductServiceImplTest {
         //Arrange
         ProductTO product = new ProductTO("id", "description", 100, 0, 100, BigDecimal.ONE);
         Product p = new Product("id", "description", 100, BigDecimal.ONE);
-        
+
         //validations pass
         Mockito.doNothing().when(objectValidator).validateProduct(product);
         Mockito.when(productConverter.toDomain(product)).thenReturn(p);
@@ -97,7 +97,7 @@ public class ProductServiceImplTest {
         //Arrange 
         InventoryTransactionTO iv = new InventoryTransactionTO(LocalDateTime.now(), 10, "id");
         Product p = new Product("id", "description", 100, BigDecimal.ONE);
-        InventoryTransaction i = new InventoryTransaction(LocalDateTime.MIN, 10);
+        InventoryTransaction i = new InventoryTransaction(LocalDateTime.now(), 10);
 
         //validations pass
         Mockito.doNothing().when(objectValidator).validateInventoryTransaction(iv);

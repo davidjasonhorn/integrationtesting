@@ -28,10 +28,9 @@ import java.util.List;
 public class ProductConverter {
 
     public Product toDomain(ProductTO product) {
-        
         Product p = new Product(product.getProductId(), 
                 product.getProductDescription(), 
-                product.getInitialQuanity(),
+                product.getInitialQuantity(),
                 product.getUnitPrice());
         return p;
     }
@@ -51,12 +50,12 @@ public class ProductConverter {
 
     public ProductListTO toTransferObject(List<Product> products) {
         List<ProductTO> productTOs = new ArrayList<>();
-        
         if (products != null) { 
             products.forEach((p) -> { 
                 productTOs.add(toTransferObject(p));
             });
         }
+    
         ProductListTO pList = new ProductListTO(productTOs);
         
         return pList;

@@ -27,7 +27,7 @@ import javax.ws.rs.core.Response;
  * @author hornd
  */
 @Path("product")
-@RequestScoped
+//@RequestScoped
 public class ProductResource {
 
     @Inject

@@ -21,7 +21,7 @@ import isoft.testing.utest.product.conversion.InventoryTransactionConverter;
 import isoft.testing.utest.product.domain.InventoryTransaction;
 import isoft.testing.utest.product.domain.Product;
 import isoft.testing.utest.product.domain.ProductRepository;
-import isoft.testing.utest.product.validation.ObjectValidator;
+import isoft.testing.utest.product.validation.SimpleObjectValidator;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.inject.Inject;
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService{
     private ExchangeRateHelper exchangeRateHelper;
     
     @Inject
-    private ObjectValidator validator;
+    private SimpleObjectValidator validator;
     
     @Override
     public void addProduct(ProductTO product) {

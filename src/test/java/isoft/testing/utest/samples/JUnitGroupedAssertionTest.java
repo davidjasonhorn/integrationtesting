@@ -46,12 +46,12 @@ public class JUnitGroupedAssertionTest {
         Assertions.assertAll( "AssertAll test",
                 () -> assertNotNull(product), 
                 () -> assertNotNull(product.getProductId()), 
-                () -> assertNotNull(product.getInitialQuanity()), 
+                () -> assertNotNull(product.getInitialQuantity()), 
                 () -> assertNotNull(product.getProductDescription()), 
-                () -> assertNotNull(product.getRemainginQuantity()), 
+                () -> assertNotNull(product.getRemainingQuantity()), 
                 () -> assertNotNull(product.getTotalUsedQuantity()), 
                 () -> assertTrue(product.getTotalUsedQuantity() == 0), 
-                () -> assertTrue(product.getRemainginQuantity()== 100)                 
+                () -> assertTrue(product.getRemainingQuantity()== 100)                 
                 );
     }
     
