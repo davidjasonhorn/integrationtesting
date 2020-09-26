@@ -77,7 +77,7 @@ public class SimpleObjectValidator implements ValidateInventory, ValidateProduct
                 violations.add("InventoryTransactionTO.unitPrice is null");
             }
 
-            if (!violations.isEmpty()) {
+            if (violations.isEmpty()) {
                 boolean isTransValid = ValidationLogicHelper.isUniqueProductId(productRepository, product.getProductId());
                 if (!isTransValid) {
                     violations.add("ProductT.productId is not unique");
@@ -89,5 +89,10 @@ public class SimpleObjectValidator implements ValidateInventory, ValidateProduct
             throw new ValidationError(violations);
         }
     }
+
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+    
 
 }

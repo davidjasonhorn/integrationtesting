@@ -75,7 +75,7 @@ public class ProductResourceIT {
             Assertions.assertEquals(200, statusCode);
             Assertions.assertEquals(productId, js.getString("productId"));
             Assertions.assertEquals(description, js.getString("productDescription"));
-            Assertions.assertEquals(initialQuantity, js.getInt("initialQuanity"));
+            Assertions.assertEquals(initialQuantity, js.getInt("initialQuantity"));
 //            Assertions.assertEquals(initialQuantity, js.getInt("remainginQuantity"));
 //            Assertions.assertEquals(0, js.getInt("totalUsedQuantity"));
             Assertions.assertEquals(unitPrice, js.getBigDecimal("unitPrice").setScale(2, RoundingMode.HALF_UP));
@@ -117,9 +117,9 @@ public class ProductResourceIT {
         JSONObject js = new JSONObject();
         js.put("productId", productId);
         js.put("productDescription", description);
-        js.put("initialQuanity", initialQuantity);
+        js.put("initialQuantity", initialQuantity);
         js.put("totalUsedQuantity", 0);
-        js.put("remainginQuantity", initialQuantity);
+        js.put("remainingQuantity", initialQuantity);
         js.put("unitPrice", unitPrice.toString());
 
         return js;

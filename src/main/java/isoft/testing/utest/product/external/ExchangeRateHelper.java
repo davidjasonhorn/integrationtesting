@@ -65,4 +65,10 @@ public class ExchangeRateHelper {
     
         return salesPrice;
     }
+
+    public void setExchangeRateService(ExchangeRateService exchangeRateService) {
+        this.exchangeRateService = exchangeRateService;
+    }
+    
+    
 }

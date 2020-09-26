@@ -69,7 +69,7 @@ public class ProductServiceImpl implements ProductService{
         InventoryTransaction inv = inventoryTransactionConverter.toDomain(inventoryTransaction);
         
         //load the product
-         Product p = productRepository.findByProductId(inventoryTransaction.getProductId());
+        Product p = productRepository.findByProductId(inventoryTransaction.getProductId());
         //add inventory to the product
         p.addInventoryTransaction(inv); 
         //store product
@@ -120,6 +120,27 @@ public class ProductServiceImpl implements ProductService{
         InventoryTransactionListTO invList = inventoryTransactionConverter.toTransferObject(inventoryTransactions);
         return invList; 
     }
+
+    /** Needed for Mockito **/
     
+    public void setExchangeRateHelper(ExchangeRateHelper exchangeRateHelper) {
+        this.exchangeRateHelper = exchangeRateHelper;
+    }
+
+    public void setInventoryTransactionConverter(InventoryTransactionConverter inventoryTransactionConverter) {
+        this.inventoryTransactionConverter = inventoryTransactionConverter;
+    }
+
+    public void setProductConverter(ProductConverter productConverter) {
+        this.productConverter = productConverter;
+    }
+
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public void setValidator(SimpleObjectValidator validator) {
+        this.validator = validator;
+    }
     
 }
