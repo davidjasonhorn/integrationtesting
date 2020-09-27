@@ -106,31 +106,6 @@ public class ProductServiceImplIT {
         Mockito.verify(repository, Mockito.timeout(1)).save(p);
         Mockito.verify(entityManager, Mockito.timeout(1)).persist(p);
     }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void performTransaction_valid_scenario() {
-        //Arrange
-        InventoryTransactionTO trans = new InventoryTransactionTO(LocalDateTime.now(), 100, "id");
-        Product p = new Product("id", "description", 100, BigDecimal.ONE);
-
-        Mockito.doNothing().when(entityManager).persist(p);
-        Mockito.when(
-                entityManager.createQuery("SELECT pd FROM Product where (:busId1 is null or pd.productId = :productId)",
-                        Product.class)).thenReturn(query);
-        Mockito.when(query.getSingleResult()).thenReturn(p);
-
-        //Act
-        productService.performTransaction(trans);
-
-        //Assert
-        Mockito.verify(inventoryTransactionConverter, Mockito.times(1)).toDomain(trans);
-        Mockito.verify(simpleObjectValidator, Mockito.times(1)).validateInventoryTransaction(trans);
-        Mockito.verify(repository, Mockito.timeout(1)).save(p);
-        Mockito.verify(entityManager, Mockito.timeout(1)).persist(p);
-    }
-    
-    
     
     @Test
     public void getSalesPrice_valid_scenario() {
