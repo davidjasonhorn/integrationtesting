@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>isoft.testing</groupId>
     <artifactId>itest</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>ISOFT - Integration - Testing</name>
     <packaging>war</packaging>
 
