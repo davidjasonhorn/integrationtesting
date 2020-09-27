@@ -7,6 +7,7 @@ import isoft.testing.utest.product.service.ProductService;
 import isoft.testing.utest.product.service.ProductTO;
 import isoft.testing.utest.product.validation.ValidationError;
 import java.math.BigDecimal;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
@@ -27,7 +28,7 @@ import javax.ws.rs.core.Response;
  * @author hornd
  */
 @Path("product")
-//@RequestScoped
+@RequestScoped
 public class ProductResource {
 
     @Inject
