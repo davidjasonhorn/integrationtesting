@@ -33,14 +33,21 @@ import org.apache.http.util.EntityUtils;
  */
 public class ExchangeRateServiceImpl {
 
+    private static String endpoint = "http://localhost:8081";
+    private static String url = "/nationalbank/xrates/usd";
 
-    public static void main () throws IOException {
+//    @Override
+//    public BigDecimal getCurrentExchangeRateForCurrency(String fromCurrency, String toCurrency) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+    public static void main() throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         try {
 
-            HttpGet request = new HttpGet("https://9da8803c-3ad4-4f0d-8abf-4e1fbea28bab.mock.pstmn.io/usd");
-
+//            HttpGet request = new HttpGet("https://9da8803c-3ad4-4f0d-8abf-4e1fbea28bab.mock.pstmn.io/usd");
+            HttpGet request = new HttpGet(endpoint +url);
             CloseableHttpResponse response = httpClient.execute(request);
 
             try {
@@ -55,10 +62,11 @@ public class ExchangeRateServiceImpl {
                 if (entity != null) {
                     // return it as a String
                     String result = EntityUtils.toString(entity);
+                   
                     System.out.println(result);
                 }
 
-            } catch (IOException ex ) {
+            } catch (IOException ex) {
                 Logger.getLogger(ExchangeRateServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ParseException ex) {
                 Logger.getLogger(ExchangeRateServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,7 +76,6 @@ public class ExchangeRateServiceImpl {
         } finally {
             httpClient.close();
         }
-       
-    
-    }       
+
+    }
 }

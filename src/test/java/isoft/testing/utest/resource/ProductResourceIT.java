@@ -46,6 +46,7 @@ public class ProductResourceIT {
 
     @Test
     public void postPerformTransaction_valid() {
+        
         //Arrange
         JSONObject jo = createTransactionJSON(productId, transctionQuantity);
         RestAssured.baseURI = HOST_PORT;
@@ -60,13 +61,13 @@ public class ProductResourceIT {
         int statusCode = response.getStatusCode();
         Assertions.assertEquals(201, statusCode);
     }
-    
+        
     @Nested
     public class loadDataTestCases { 
         @Test
         public void getProductByID_valid() {
             RestAssured.baseURI = HOST_PORT;
-
+            
             RequestSpecification request = RestAssured.given();
             Response response = request.get(PRODUCT_URI + "/" + productId);
             JSONObject js = new JSONObject(response.asString());

@@ -106,7 +106,7 @@ public class ProductServiceImplIT {
         Mockito.verify(repository, Mockito.timeout(1)).save(p);
         Mockito.verify(entityManager, Mockito.timeout(1)).persist(p);
     }
-    
+
     @Test
     public void getSalesPrice_valid_scenario() {
         //Arrange
